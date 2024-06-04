@@ -103,4 +103,7 @@ const ModalLogin = () => {
   );
 };
 
-export default ModalLogin;
+export default CadastroForm;
+
+//meu penis está ereto
+//meu pau ta muito sujo
