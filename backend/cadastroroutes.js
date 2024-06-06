@@ -17,7 +17,7 @@ router.get('/cadastro', (req, res) => {
 // Rota para buscar um registro específico pelo ID
 router.get('/cadastro/:id', (req, res) => {
   const { id } = req.params;
-  connection.query('SELECT * FROM cadastro WHERE id = ?', [id], (err, results) => {
+  connection.query('SELECT * FROM cadastro WHERE ID= ?', [id], (err, results) => {
     if (err) {
       console.error('Erro ao buscar o registro:', err);
       res.status(500).json({ error: 'Erro ao buscar o registro' });
@@ -49,7 +49,7 @@ router.post('/cadastro', (req, res) => {
 router.put('/cadastro/:id', (req, res) => {
   const { id } = req.params;
   const { nome, email, senha } = req.body;
-  connection.query('UPDATE cadastro SET nome = ?, email = ?, senha = ? WHERE id = ?', 
+  connection.query('UPDATE cadastro SET nome = ?, email = ?, senha = ? WHERE ID  = ?', 
     [nome, email, senha, id], (err, result) => {
     if (err) {
       console.error('Erro ao atualizar o registro:', err);

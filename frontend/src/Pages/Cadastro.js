@@ -6,7 +6,7 @@ const Cadastro = () => {
   return (
     <>
       <div>
-        <h2>Página Cadastro</h2>
+        
         <CadastroForm />
       </div>
     </>

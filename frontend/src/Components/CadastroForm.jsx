@@ -1,7 +1,9 @@
 // CadastroForm.jsx
-import React from 'react'
+import React, { useState } from 'react'
 import 'rsuite/dist/rsuite.min.css';
-import { Form, ButtonToolbar, Button, Input } from 'rsuite';
+import axios from 'axios';
+import Swal from 'sweetalert2'
+import { Form, ButtonToolbar, Button } from 'rsuite';
 import { Modal } from 'rsuite';
 import { Tabs } from 'rsuite';
 import '../css/modalogin.css'
@@ -9,6 +11,74 @@ import { Link } from 'react-router-dom';
 import CatLogo from '../img/cathub-removebg-preview.png'
 
 const ModalLogin = () => {
+  const [loginFormData, setLoginFormData] = useState({
+    nome: '',
+    senha: ''
+  });
+
+  const [cadastrosFormData, setCadastrosFormData] = useState({
+    nome: '',
+    email: '',
+    senha: ''
+  });
+
+  const handleLoginChange = (value, name) => {
+    setLoginFormData({
+      ...loginFormData,
+      [name]: value
+    });
+  };
+
+  const handleCadastrosChange = (value, name) => {
+    setCadastrosFormData({
+      ...cadastrosFormData,
+      [name]: value
+    });
+  };
+
+  const handleLoginSubmit = async () => {
+
+    try {
+      await axios.post('http://localhost:3001/autlogin', loginFormData , {
+        email: 'example@example.com',
+        senha: 'examplepassword'
+      });
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Sucesso!',
+        text: 'Login feito com sucesso!'
+      })
+    } catch (error) {
+      console.error('Erro ao fazer login:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Erro ao criar cadastro de login. Verifique o console para mais detalhes.',
+        confirmButtonText: 'OK'
+      });
+    }
+  };
+
+  const handleCadastrosSubmit = async () => {
+    try {
+      await axios.post('http://localhost:3001/cadastro', cadastrosFormData);
+      Swal.fire({
+        icon: 'success',
+        title: 'Sucesso!',
+        text: 'Cadastro criado com sucesso!'
+      }).then(() => {
+        window.location.reload(false);
+      });
+    } catch (error) {
+      console.error('Erro ao criar cadastro', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro!',
+        text: 'Erro ao criar cadastro. Verifique o console para mais detalhes.'
+      });
+    }
+  };
   const [open, setOpen] = React.useState(false);
   const [rows, setRows] = React.useState(0);
   const handleOpen = () => setOpen(true);
@@ -46,56 +116,50 @@ const ModalLogin = () => {
               </div>
               <br />
               <br />
-              <Form >
+              <Form onSubmit={handleLoginSubmit}>
                 <Form.Group controlId="name">
                   <Form.ControlLabel>Username</Form.ControlLabel>
-                  <Form.Control name="name" />
+                  <Form.Control name="nome" value={loginFormData.nome} onChange={(value) => handleLoginChange(value, "nome")} />
                 </Form.Group>
-
                 <Form.Group controlId="password">
                   <Form.ControlLabel>Password</Form.ControlLabel>
-                  <Form.Control name="password" type="password" autoComplete="off" />
+                  <Form.Control name="senha" type="password" autoComplete="off" value={loginFormData.senha} onChange={(value) => handleLoginChange(value, "senha")} />
                 </Form.Group>
                 <Form.Group>
                   <ButtonToolbar>
                     <br />
                     <Link appearance="default">Esqueceu a senha?</Link>
                     <br />
-                    <Button className='modalloginbutton' appearance="primary">Entrar</Button>
-
+                    <Button type='submit' className='modalloginbutton' appearance="primary">Entrar</Button>
                   </ButtonToolbar>
                 </Form.Group>
               </Form>
             </Tabs.Tab>
             <Tabs.Tab eventKey="2" title="Cadastro">
-              <Form>
+              <Form onSubmit={handleCadastrosSubmit}>
                 <div className='d-flex cadastro'>
                   <h3 className='titulomodalcadastro'>Cadastro</h3>
                   <img className='logotitulocadastro' src={CatLogo} />
-
                 </div>
-                <Form.Group controlId="name">
+                <Form.Group controlId="cadastroNome">
                   <Form.ControlLabel>Username</Form.ControlLabel>
-                  <Form.Control name="name" />
-
+                  <Form.Control type='text' name="nome" value={cadastrosFormData.nome} onChange={(value) => handleCadastrosChange(value, "nome")} />
                 </Form.Group>
-                <Form.Group controlId="email">
+                <Form.Group controlId="cadastroEmail">
                   <Form.ControlLabel>Email</Form.ControlLabel>
-                  <Form.Control name="email" type="email" />
-
+                  <Form.Control name="email" type="email" value={cadastrosFormData.email} onChange={(value) => handleCadastrosChange(value, "email")} />
                 </Form.Group>
-                <Form.Group controlId="password">
+                <Form.Group>
                   <Form.ControlLabel>Password</Form.ControlLabel>
-                  <Form.Control name="password" type="password" autoComplete="off" />
+                  <Form.Control name="senha" type="password" value={cadastrosFormData.senha} onChange={(value) => handleCadastrosChange(value, "senha")} autoComplete="off" />
                 </Form.Group>
                 <Form.Group>
                   <ButtonToolbar>
-                    <Button className='modalloginbutton'> Criar conta</Button>
+                    <Button type='submit' className='modalloginbutton'>Criar conta</Button>
                   </ButtonToolbar>
                 </Form.Group>
               </Form>
             </Tabs.Tab>
-
           </Tabs>
         </Modal.Body>
       </Modal>
@@ -103,7 +167,4 @@ const ModalLogin = () => {
   );
 };
 
-export default CadastroForm;
-
-//meu penis está ereto
-//meu pau ta muito sujo
+export default ModalLogin;
