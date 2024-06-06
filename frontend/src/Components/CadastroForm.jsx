@@ -39,7 +39,7 @@ const ModalLogin = () => {
   const handleLoginSubmit = async () => {
 
     try {
-      await axios.post('http://localhost:3001/cadastro', loginFormData , {
+      await axios.post('http://localhost:3001/cadastro', loginFormData, {
         email: 'example@example.com',
         senha: 'examplepassword'
       });
@@ -99,7 +99,7 @@ const ModalLogin = () => {
         onClose={handleClose}
         onEntered={handleEntered}
         onExited={() => {
-        setRows(0);
+          setRows(0);
         }}
       >
         <Modal.Header >
