@@ -1,0 +1,56 @@
+.rs-modal-content {
+    background-color: #fff;
+    background-color: var(--rs-bg-overlay);
+    border: none;
+    border: var(--rs-modal-border, none);
+    border-radius: 6px;
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, .12), 0 0 10px rgba(0, 0, 0, .06);
+    -webkit-box-shadow: var(--rs-modal-shadow);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, .12), 0 0 10px rgba(0, 0, 0, .06);
+    box-shadow: var(--rs-modal-shadow);
+    outline: 0;
+    padding: 20px;
+    position: relative;
+    width: 58%;
+    display: grid;
+    margin-left: 22%;
+}
+
+.rs-tabs .rs-nav-item {
+    background: none;
+    margin-left: 18%;
+    color: #ffa31a;
+}
+
+.modalloginbutton {
+    background-color: #ffa31a;
+    padding: 8px 28px 8px 28px;
+}
+
+.rs-stack {
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login {
+    margin-left: 22%;
+}
+.cadastro {
+    margin-left: 14%;
+}
+
+.logotitulologin {
+    width: 140px;
+    margin-left: -10px;
+}
+.logotitulocadastro {
+    width: 140px;
+    margin-left: -6px;
+}
+.titulomodallogin {
+    margin-top: 22px;
+}
+.titulomodalcadastro {
+    margin-top: 22px;
+}
