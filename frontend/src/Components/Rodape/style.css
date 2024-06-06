@@ -1,0 +1,60 @@
+.rodape {
+    background-color: #000000;
+    position: absolute;
+    width: 100%;
+    color: white;
+}
+
+ul {
+    text-decoration: none;
+    list-style: none;
+}
+
+.image {
+    width: 105px;
+}
+
+hr {
+    color: white;
+}
+
+.extras {
+    color: rgb(160, 160, 160);
+    margin-top: 3%;
+}
+
+.complemento {
+    color: rgb(160, 160, 160);
+}
+
+.rodaCat {
+    margin-top: 50px;
+}
+
+/*css do navegação*/
+a {
+    text-decoration: none;
+}
+
+.bg-body-tertiary {
+    background-color: rgb(0, 0, 0) !important;
+}
+
+.me-auto.navegação.navbar-nav {
+    margin: 0 !important;
+}
+
+.navLink {
+    color: white;
+    padding: 8px 12px 8px 12px;
+    color: white;
+}
+
+.navLink:hover {
+    text-decoration: underline;
+}
+
+div#basic-navbar-nav {
+    display: flex;
+    justify-content: center;
+}
