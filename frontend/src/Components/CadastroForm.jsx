@@ -8,7 +8,7 @@ import { Modal } from 'rsuite';
 import { Tabs } from 'rsuite';
 import '../css/modalogin.css'
 import { Link } from 'react-router-dom';
-import CatLogo from '../img/cathub-removebg-preview.png'
+import CatLogo from '../img/gatu.png';
 
 const ModalLogin = () => {
  
@@ -100,8 +100,9 @@ const ModalLogin = () => {
                   </ButtonToolbar>
                 </Form.Group>
               </Form>
-            </Tabs.Tab>
 
+            </Tabs.Tab>
+            
             <Tabs.Tab eventKey="2" title="Cadastro">
               <Form onSubmit={handleCadastrosSubmit}>
                 <div className='d-flex cadastro'>
