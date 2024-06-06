@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import CatLogo from '../img/cathub-removebg-preview.png'
 
 const ModalLogin = () => {
+ 
   const [cadastroFormData, setCadastroFormData] = useState({
     nome: '',
     email: '',
@@ -68,8 +69,7 @@ const ModalLogin = () => {
         }}
       >
         <Modal.Header >
-        row={rows}
-        {/* APAGAR DPS */}
+
         </Modal.Header>
 
         <Modal.Body>
@@ -82,14 +82,14 @@ const ModalLogin = () => {
               </div>
               <br />
               <br />
-              <Form>
+              <Form >
                 <Form.Group controlId="name">
-                  <Form.ControlLabel>Username</Form.ControlLabel>
-                  <Form.Control name="nome" />
+                  <Form.ControlLabel>Nome de Usuario</Form.ControlLabel>
+                  <Form.Control name="nome" type='text'/>
                 </Form.Group>
                 <Form.Group controlId="password">
-                  <Form.ControlLabel>Password</Form.ControlLabel>
-                  <Form.Control name="senha" type="password" autoComplete="off" />
+                  <Form.ControlLabel>Senha</Form.ControlLabel>
+                  <Form.Control name="senha" type="password" autoComplete="off"  />
                 </Form.Group>
                 <Form.Group>
                   <ButtonToolbar>
@@ -101,6 +101,7 @@ const ModalLogin = () => {
                 </Form.Group>
               </Form>
             </Tabs.Tab>
+
             <Tabs.Tab eventKey="2" title="Cadastro">
               <Form onSubmit={handleCadastrosSubmit}>
                 <div className='d-flex cadastro'>
