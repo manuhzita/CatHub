@@ -16,7 +16,7 @@ const ModalLogin = () => {
     senha: ''
   });
 
-  const [cadastrosFormData, setCadastrosFormData] = useState({
+  const [cadastroFormData, setCadastroFormData] = useState({
     nome: '',
     email: '',
     senha: ''
@@ -30,8 +30,8 @@ const ModalLogin = () => {
   };
 
   const handleCadastrosChange = (value, name) => {
-    setCadastrosFormData({
-      ...cadastrosFormData,
+    setCadastroFormData({
+      ...cadastroFormData,
       [name]: value
     });
   };
@@ -39,7 +39,7 @@ const ModalLogin = () => {
   const handleLoginSubmit = async () => {
 
     try {
-      await axios.post('http://localhost:3001/autlogin', loginFormData , {
+      await axios.post('http://localhost:3001/cadastro', loginFormData , {
         email: 'example@example.com',
         senha: 'examplepassword'
       });
@@ -62,7 +62,7 @@ const ModalLogin = () => {
 
   const handleCadastrosSubmit = async () => {
     try {
-      await axios.post('http://localhost:3001/cadastro', cadastrosFormData);
+      await axios.post('http://localhost:3000/cadastro', cadastroFormData);
       Swal.fire({
         icon: 'success',
         title: 'Sucesso!',
@@ -99,20 +99,21 @@ const ModalLogin = () => {
         onClose={handleClose}
         onEntered={handleEntered}
         onExited={() => {
-          setRows(0);
+        setRows(0);
         }}
       >
         <Modal.Header >
-
+          {/* APAGAR MAIS TARDE, NÃO SERVE PRA NADA "setRows={rows}", SERVE APENAS PRA DEFINIR O "rows" QUE ESTAVA INDEFINIDO E DANDO ERRO!!! */}
+          setRows={rows}
         </Modal.Header>
+
         <Modal.Body>
           <Tabs defaultActiveKey="1" appearance="subtle">
             <Tabs.Tab eventKey="1" title="Login">
               <br />
               <div className='d-flex login'>
                 <h3 className='titulomodallogin'>Login</h3>
-                <img className='logotitulologin' src={CatLogo} />
-
+                <img className='logotitulologin' src={CatLogo} alt="imagem" />
               </div>
               <br />
               <br />
@@ -139,19 +140,19 @@ const ModalLogin = () => {
               <Form onSubmit={handleCadastrosSubmit}>
                 <div className='d-flex cadastro'>
                   <h3 className='titulomodalcadastro'>Cadastro</h3>
-                  <img className='logotitulocadastro' src={CatLogo} />
+                  <img className='logotitulocadastro' src={CatLogo} alt="imagem" />
                 </div>
                 <Form.Group controlId="cadastroNome">
                   <Form.ControlLabel>Username</Form.ControlLabel>
-                  <Form.Control type='text' name="nome" value={cadastrosFormData.nome} onChange={(value) => handleCadastrosChange(value, "nome")} />
+                  <Form.Control type='text' name="nome" value={cadastroFormData.nome} onChange={(value) => handleCadastrosChange(value, "nome")} />
                 </Form.Group>
                 <Form.Group controlId="cadastroEmail">
                   <Form.ControlLabel>Email</Form.ControlLabel>
-                  <Form.Control name="email" type="email" value={cadastrosFormData.email} onChange={(value) => handleCadastrosChange(value, "email")} />
+                  <Form.Control name="email" type="email" value={cadastroFormData.email} onChange={(value) => handleCadastrosChange(value, "email")} />
                 </Form.Group>
                 <Form.Group>
-                  <Form.ControlLabel>Password</Form.ControlLabel>
-                  <Form.Control name="senha" type="password" value={cadastrosFormData.senha} onChange={(value) => handleCadastrosChange(value, "senha")} autoComplete="off" />
+                  <Form.ControlLabel>Senha</Form.ControlLabel>
+                  <Form.Control name="senha" type="password" value={cadastroFormData.senha} onChange={(value) => handleCadastrosChange(value, "senha")} autoComplete="off" />
                 </Form.Group>
                 <Form.Group>
                   <ButtonToolbar>

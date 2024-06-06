@@ -3,10 +3,10 @@ const connection = require('./db');
 const router = express.Router();
 
 // Rota para verificar se email e senha existem
-router.post('/autlogin', (req, res) => {
+router.post('/cadastro', (req, res) => {
   const { email, senha } = req.body;
   connection.query('SELECT senha FROM cadastro WHERE email = ?',
-    [email], (err, result) => {
+    [senha, email], (err, result) => {
       if (err) {
         console.log(`senha: ${senha} e resultsenha: ${result}`);
         console.log(result[0].senha);

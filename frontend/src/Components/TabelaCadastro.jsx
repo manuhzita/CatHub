@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const TabelaCadastro = () => {
-  const [cadastros, setCadastros] = useState([]);
+  const [cadastro, setCadastro] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get("http://localhost:3001/cadastros");
-        setCadastros(data);
+        const { data } = await axios.get("http://localhost:3001/cadastro");
+        setCadastro(data);
       } catch (error) {
         console.error("Erro ao buscar usuários:", error); // Adiciona este log de erro
       }
@@ -19,10 +19,10 @@ const TabelaCadastro = () => {
 
   const handleExcluirUsuario = async (idCadastro) => {
     try {
-      await axios.delete(`http://localhost:3001/cadastros/${idCadastro}`);
+      await axios.delete(`http://localhost:3001/cadastro/${idCadastro}`);
       // Atualiza a lista de cadastros após a exclusão
-      const { data } = await axios.get("http://localhost:3001/cadastros");
-      setCadastros(data);
+      const { data } = await axios.get("://localhost:3001/cadastro");
+      setCadastro(data);
       console.log("Usuário excluído com sucesso!");
     } catch (error) {
       console.error("Erro ao excluir usuário:", error);
@@ -46,7 +46,7 @@ const TabelaCadastro = () => {
           </tr>
         </thead>
         <tbody>
-          {cadastros.map((cadastro) => (
+          {cadastro.map((cadastro) => (
             <tr key={cadastro.idCadastro}>
               <td>{cadastro.idCadastro}</td>
               <td>{cadastro.nome}</td>
