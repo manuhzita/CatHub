@@ -17,7 +17,7 @@ router.get('/cadastro', (req, res) => {
 // Rota para buscar um registro específico pelo ID
 router.get('/cadastro/:id', (req, res) => {
   const { id } = req.params;
-  connection.query('SELECT * FROM cadastro WHERE ID= ?', [id], (err, results) => {
+  connection.query('SELECT * FROM cadastro WHERE ID = ?', [id], (err, results) => {
     if (err) {
       console.error('Erro ao buscar o registro:', err);
       res.status(500).json({ error: 'Erro ao buscar o registro' });
@@ -63,7 +63,7 @@ router.put('/cadastro/:id', (req, res) => {
 // Rota para excluir um registro pelo ID
 router.delete('/cadastro/:id', (req, res) => {
   const { id } = req.params;
-  connection.query('DELETE FROM cadastro WHERE idCadastro = ?', [id], (err, result) => {
+  connection.query('DELETE FROM cadastro WHERE ID = ?', [id], (err, result) => {
     if (err) {
       console.error('Erro ao excluir o registro:', err);
       res.status(500).json({ error: 'Erro ao excluir o registro' });
