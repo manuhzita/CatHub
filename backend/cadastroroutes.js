@@ -14,6 +14,7 @@ router.get('/cadastro', (req, res) => {
   });
 });
 
+
 // Rota para buscar um registro específico pelo ID
 router.get('/cadastro/:id', (req, res) => {
   const { id } = req.params;
@@ -31,33 +32,32 @@ router.get('/cadastro/:id', (req, res) => {
   });
 });
 
-// Rota para criar um novo registro
-router.post('/cadastro', (req, res) => {
+router.post('/', (req, res) => {
   const { nome, email, senha } = req.body;
-  connection.query('INSERT INTO cadastro (nome , email , senha) VALUES (?, ?, ?)', 
+  connection.query('INSERT INTO cadastro (nome, email, senha) VALUES (?, ?, ?)',
     [nome, email, senha], (err, result) => {
-    if (err) {
-      console.error('Erro ao criar o registro:', err);
-      res.status(500).json({ error: 'Erro ao criar o registro' });
-      return;
-    }
-    res.status(201).json({ message: 'Registro criado com sucesso', id: result.insertId });
-  });
+      if (err) {
+        console.error('Erro ao criar o registro:', err);
+        res.status(500).json({ error: 'Erro ao criar o registro' });
+        return;
+      }
+      res.status(201).json({ message: 'Registro criado com sucesso', id: result.insertId });
+    });
 });
 
 // Rota para atualizar um registro existente pelo ID
 router.put('/cadastro/:id', (req, res) => {
   const { id } = req.params;
   const { nome, email, senha } = req.body;
-  connection.query('UPDATE cadastro SET nome = ?, email = ?, senha = ? WHERE ID  = ?', 
+  connection.query('UPDATE cadastro SET nome = ?, email = ?, senha = ? WHERE ID  = ?',
     [nome, email, senha, id], (err, result) => {
-    if (err) {
-      console.error('Erro ao atualizar o registro:', err);
-      res.status(500).json({ error: 'Erro ao atualizar o registro' });
-      return;
-    }
-    res.json({ message: 'Registro atualizado com sucesso' });
-  });
+      if (err) {
+        console.error('Erro ao atualizar o registro:', err);
+        res.status(500).json({ error: 'Erro ao atualizar o registro' });
+        return;
+      }
+      res.json({ message: 'Registro atualizado com sucesso' });
+    });
 });
 
 // Rota para excluir um registro pelo ID
