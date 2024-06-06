@@ -11,23 +11,11 @@ import { Link } from 'react-router-dom';
 import CatLogo from '../img/cathub-removebg-preview.png'
 
 const ModalLogin = () => {
-  const [loginFormData, setLoginFormData] = useState({
-    nome: '',
-    senha: ''
-  });
-
   const [cadastroFormData, setCadastroFormData] = useState({
     nome: '',
     email: '',
     senha: ''
   });
-
-  const handleLoginChange = (value, name) => {
-    setLoginFormData({
-      ...loginFormData,
-      [name]: value
-    });
-  };
 
   const handleCadastrosChange = (value, name) => {
     setCadastroFormData({
@@ -36,33 +24,9 @@ const ModalLogin = () => {
     });
   };
 
-  const handleLoginSubmit = async () => {
-
-    try {
-      await axios.post('http://localhost:3001/cadastro', loginFormData , {
-        email: 'example@example.com',
-        senha: 'examplepassword'
-      });
-
-      Swal.fire({
-        icon: 'success',
-        title: 'Sucesso!',
-        text: 'Login feito com sucesso!'
-      })
-    } catch (error) {
-      console.error('Erro ao fazer login:', error);
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Erro ao criar cadastro de login. Verifique o console para mais detalhes.',
-        confirmButtonText: 'OK'
-      });
-    }
-  };
-
   const handleCadastrosSubmit = async () => {
     try {
-      await axios.post('http://localhost:3000/cadastro', cadastroFormData);
+      await axios.post('http://localhost:3001/cadastro', cadastroFormData);
       Swal.fire({
         icon: 'success',
         title: 'Sucesso!',
@@ -79,6 +43,7 @@ const ModalLogin = () => {
       });
     }
   };
+
   const [open, setOpen] = React.useState(false);
   const [rows, setRows] = React.useState(0);
   const handleOpen = () => setOpen(true);
@@ -99,12 +64,12 @@ const ModalLogin = () => {
         onClose={handleClose}
         onEntered={handleEntered}
         onExited={() => {
-        setRows(0);
+          setRows(0);
         }}
       >
         <Modal.Header >
-          {/* APAGAR MAIS TARDE, NÃO SERVE PRA NADA "setRows={rows}", SERVE APENAS PRA DEFINIR O "rows" QUE ESTAVA INDEFINIDO E DANDO ERRO!!! */}
-          setRows={rows}
+        row={rows}
+        {/* APAGAR DPS */}
         </Modal.Header>
 
         <Modal.Body>
@@ -117,14 +82,14 @@ const ModalLogin = () => {
               </div>
               <br />
               <br />
-              <Form onSubmit={handleLoginSubmit}>
+              <Form>
                 <Form.Group controlId="name">
                   <Form.ControlLabel>Username</Form.ControlLabel>
-                  <Form.Control name="nome" value={loginFormData.nome} onChange={(value) => handleLoginChange(value, "nome")} />
+                  <Form.Control name="nome" />
                 </Form.Group>
                 <Form.Group controlId="password">
                   <Form.ControlLabel>Password</Form.ControlLabel>
-                  <Form.Control name="senha" type="password" autoComplete="off" value={loginFormData.senha} onChange={(value) => handleLoginChange(value, "senha")} />
+                  <Form.Control name="senha" type="password" autoComplete="off" />
                 </Form.Group>
                 <Form.Group>
                   <ButtonToolbar>
