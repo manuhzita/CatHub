@@ -3,13 +3,7 @@
 1. Configuração do Banco de Dados:
    Execute o script SQL fornecido abaixo para criar a tabela cadastro.
       ````
-    create table cadastro (
-id int auto_increment not null primary key,
-nome varchar(40),
-email varchar(50),
-senha varchar(50)
-)
-   ````
+    create table cadastro ( id int auto_increment not null primary key, nome varchar(40), email varchar(50), senha varchar(50))
    ````
 tabela de contato (rota sem funcionar, não conseguimos arrumar)
 CREATE TABLE Contato (
