@@ -1,5 +1,5 @@
 .rs-modal-content {
-    background-color: #fff;
+    background-color: #302f2f !important;
     background-color: var(--rs-bg-overlay);
     border: none;
     border: var(--rs-modal-border, none);
@@ -14,6 +14,12 @@
     width: 58%;
     display: grid;
     margin-left: 22%;
+
+}
+
+.rs-modal-body {
+    overflow: auto;
+    max-height: 580px !important;
 }
 
 .rs-tabs .rs-nav-item {
@@ -22,9 +28,41 @@
     color: #ffa31a;
 }
 
+.rs-nav-item:hover {
+    color: black !important;
+}
+
+.rs-nav-item {
+    color: #ffa31a !important;
+}
+
+.rs-nav-horizontal .rs-nav-bar {
+    width: 0 !important;
+}
+
 .modalloginbutton {
-    background-color: #ffa31a;
+    background-color: #ffa31a !important;
+    color: #000000 !important;
     padding: 8px 28px 8px 28px;
+    margin-left: 126px !important;
+}
+
+.modalloginbutton:hover,
+.modalloginbutton:active {
+    background-color: #494949 !important;
+    color: #ffa31a !important;
+}
+.modalcadastrobutton {
+    background-color: #ffa31a !important;
+    color: #000000 !important;
+    padding: 8px 28px 8px 28px;
+    margin-left: 110px !important;
+}
+
+.modalcadastrobutton:hover,
+.modalcadastrobutton:active {
+    background-color: #494949 !important;
+    color: #ffa31a !important;
 }
 
 .rs-stack {
@@ -36,21 +74,81 @@
 .login {
     margin-left: 22%;
 }
+
 .cadastro {
     margin-left: 14%;
 }
 
 .logotitulologin {
+    margin-top: 15px;
     width: 140px;
-    margin-left: -10px;
+    margin-left: -20px;
 }
+
 .logotitulocadastro {
+    margin-top: 15px;
     width: 140px;
-    margin-left: -6px;
+    margin-left: -20px;
 }
+
 .titulomodallogin {
+    font-size: 28px;
     margin-top: 22px;
 }
+
 .titulomodalcadastro {
+    font-size: 28px;
     margin-top: 22px;
+    
 }
+
+.inputform {
+    margin-left: 16%;
+    width: 140% !important;
+    background-color: transparent !important;
+}
+
+.formlabel {
+    margin-left: 10% !important;
+}
+
+.rs-btn-primary {
+    background-color: #ffa31a !important;
+    background-color: var(--rs-btn-primary-bg);
+    border: none;
+    color: #000000 !important;
+    color: var(--rs-btn-primary-text);
+}
+
+.rs-btn-primary:hover {
+    background-color: #424242 !important;
+    color: #ffa31a !important;
+}
+
+.Login-botao {
+    margin-left: 1em !important;
+    justify-content: center;
+    border-radius: 6px;
+    height: 38px !important;
+    border: none;
+    background-color: #FDA41F !important;
+    color: black !important;
+    padding: 13px;
+    box-shadow: 0 0.7065919983928324px 0.7065919983928324px -0.625px #00000026, 0 1.8065619053231785px 1.8065619053231785px -1.25px #00000025, 0 3.6217592146567767px 3.6217592146567767px -1.875px #00000023, 0 6.8655999097303715px 6.8655999097303715px -2.5px #00000020, 0 13.646761411524492px 13.646761411524492px -3.125px #0000001b, 0 30px 30px -3.75px #0000000d;
+    font-weight: bold !important;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: 150ms ease-in-out;
+}
+
+.rs-stack {
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.toolbar {
+    margin-left: 38em !important;
+}
+

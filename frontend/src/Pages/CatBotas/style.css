@@ -1,0 +1,26 @@
+.uploader {
+
+    width: 400px !important;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.rs-uploader-draggable .rs-uploader-trigger-customize .rs-uploader-trigger-btn {
+    margin: 30px 0 30px 0 !important;
+    background: #707070 !important;
+    background: var(--rs-uploader-dnd-bg);
+    border: 1px dashed #e5e5ea;
+    border: 1px dashed var(--rs-uploader-dnd-border);
+    display: block;
+    border-radius: 20px;
+    width: 120% !important;
+}
+
+.rs-uploader-text:hover {
+   color: #e5e5ea !important;
+}
+.sub {
+    margin-left: 6px;
+}

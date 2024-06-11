@@ -40,16 +40,15 @@
         rgba(0, 0, 0, 0.03) 0px 16px 28.8px -4.5px;
 }
 
+
 .Login-botao {
-    margin-left: 10px;
+    margin-left: 52em !important;
     justify-content: center;
     border-radius: 8px;
-    height: 40px;
+    height: 38px !important;
     border: none;
-    background: #FDA41F;
-    /* Changed color to yellow */
-    color: #333;
-    /* Changed text color to dark gray */
+    background-color: #FDA41F !important;
+    color: black !important;
     padding: 13px;
     box-shadow: 0 0.7065919983928324px 0.7065919983928324px -0.625px #00000026,
         0 1.8065619053231785px 1.8065619053231785px -1.25px #00000025,
@@ -57,7 +56,7 @@
         0 6.8655999097303715px 6.8655999097303715px -2.5px #00000020,
         0 13.646761411524492px 13.646761411524492px -3.125px #0000001b,
         0 30px 30px -3.75px #0000000d;
-    font-weight: bold;
+    font-weight: bold !important;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -66,9 +65,9 @@
 
 .Login-botao:active {
     scale: 0.95;
-    background: #333;
+    background-color: #333 !important;
     /* Changed background color to dark gray */
-    color: #FDA41F;
+    color: #FDA41F !important;
     /* Changed text color to yellow */
     box-shadow: rgba(0, 0, 0, 0.26) 0px 0.637473px 1.14745px -1.125px,
         rgba(0, 0, 0, 0.24) 0px 1.93094px 3.4757px -2.25px,
@@ -113,10 +112,12 @@
 }
 
 .buscar {
+    padding-left: 8px;
     margin-left: 90px;
     border-radius: 9px;
     border: none;
-    height: 30px;
+    height: 36px;
+    background-color: black !important;
 }
 
 .cathub {
@@ -128,4 +129,193 @@
 nav.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light {
     border: solid 1px 0px 1px 10px;
     border-top: 1px solid #424242;
+}
+
+.form-container {
+    width: 450px;
+    background: linear-gradient(#212121, #212121) padding-box,
+        linear-gradient(145deg, transparent 35%, #ffa31a, #40c9ff) border-box;
+    border: 2px solid transparent;
+    padding: 32px 24px;
+    font-size: 14px;
+    font-family: inherit;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    background-size: 200% 100%;
+    animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.form-container button:active {
+    scale: 0.95;
+}
+
+.form-container .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: -10%;
+}
+
+.form-container .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.form-container .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #717171;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.form-container .form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: #fff;
+    font-family: inherit;
+    background-color: transparent;
+    border: 1px solid #414141;
+}
+
+.form-container .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    resize: none;
+    color: #fff;
+    height: 96px;
+    border: 1px solid #414141;
+    background-color: transparent;
+    font-family: inherit;
+}
+
+.form-container .form-group input::placeholder {
+    opacity: 0.5;
+}
+
+.form-container .form-group input:focus {
+    outline: none;
+    border-color: #ffa31a;
+}
+
+.form-container .form-group textarea:focus {
+    outline: none;
+    border-color: #fda41f;
+}
+
+.form-container .form-submit-btn {
+    justify-content: center;
+    border-radius: 8px;
+    height: 50px;
+    border: none;
+    background: #fda41f;
+    /* Changed color to yellow */
+    color: #333;
+    /* Changed text color to dark gray */
+    padding: 13px;
+    box-shadow: 0 0.7065919983928324px 0.7065919983928324px -0.625px #00000026,
+        0 1.8065619053231785px 1.8065619053231785px -1.25px #00000025,
+        0 3.6217592146567767px 3.6217592146567767px -1.875px #00000023,
+        0 6.8655999097303715px 6.8655999097303715px -2.5px #00000020,
+        0 13.646761411524492px 13.646761411524492px -3.125px #0000001b,
+        0 30px 30px -3.75px #0000000d;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: 150ms ease-in-out;
+}
+
+.form-container .form-submit-btn:hover {
+    scale: 0.95;
+    background: #333;
+    /* Changed background color to dark gray */
+    color: #fda41f;
+    /* Changed text color to yellow */
+    box-shadow: rgba(0, 0, 0, 0.26) 0px 0.637473px 1.14745px -1.125px,
+        rgba(0, 0, 0, 0.24) 0px 1.93094px 3.4757px -2.25px,
+        rgba(0, 0, 0, 0.192) 0px 5.10423px 9.18761px -3.375px,
+        rgba(0, 0, 0, 0.03) 0px 16px 28.8px -4.5px;
+}
+
+.CatHub {
+    margin-left: 25%;
+}
+
+.espaco {
+    padding-left: 37%;
+}
+
+modal-body {
+    position: relative;
+    flex: 1 1 auto;
+    /* padding: var(--bs-modal-padding); */
+}
+
+.modal {
+    --bs-modal-zindex: 1055;
+    --bs-modal-width: 455px;
+    --bs-modal-padding: 0.1em;
+    --bs-modal-margin: 2rem;
+    --bs-modal-color: ;
+    --bs-modal-bg: black !important;
+    /* --bs-modal-border-color: var(--bs-border-color-translucent); */
+    --bs-modal-border-width: var(--bs-border-width);
+    --bs-modal-border-radius: var(--bs-border-radius-lg);
+    --bs-modal-box-shadow: var(--bs-box-shadow-sm);
+    --bs-modal-inner-border-radius: calc(var(--bs-border-radius-lg) - (var(--bs-border-width)));
+    --bs-modal-header-padding-x: 1rem;
+    --bs-modal-header-padding-y: 1rem;
+    --bs-modal-header-padding: 1rem 1rem;
+    --bs-modal-header-border-color: var(--bs-border-color);
+    --bs-modal-header-border-width: var(--bs-border-width);
+    --bs-modal-title-line-height: 1.5;
+    --bs-modal-footer-gap: 0.4rem;
+    --bs-modal-footer-bg: ;
+    --bs-modal-footer-border-color: var(--bs-border-color);
+    --bs-modal-footer-border-width: var(--bs-border-width);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--bs-modal-zindex);
+    display: none;
+    width: 100%;
+    height: 90%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+
+}
+
+.form-container {
+    background: linear-gradient(#212121, #212121) padding-box, linear-gradient(145deg, transparent 35%, #000000, #000000) border-box;
+}
+.navLink {
+    text-decoration: none !important;
+    color: #fda41f !important;
+}
+.navLink:hover {
+    transition: all 0.2s;
+    color: #ffffff !important;
 }

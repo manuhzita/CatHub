@@ -1,9 +1,5 @@
 // Home
 import React, { useState, createRef } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import Button from 'react-bootstrap/Button';
-import Image from 'react-bootstrap/Image';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import '../Home/style.css';
 
 //video player
@@ -18,6 +14,14 @@ import video5 from '../../video/gato5.mp4';
 import video6 from '../../video/gato6.mp4';
 
 function Home() {
+  const titulos = [
+    "Gatinho sonolento olhando para a câmera (fofo)",
+    "Gato muito bonito, fotogênico e modelo",
+    "Gato brincando com pelúcia no sofá",
+    "Gatinhos fofos no sofá",
+    "Gato olhando atentamente pela janela",
+    "Gato deitado na mesa de escritório"
+  ];
   const [model, setModel] = useState(false);
   let data = [
     {
@@ -80,7 +84,8 @@ function Home() {
                     poster={item.poster}
                   ><source src={item.videoUri} type="video/webm" />
                   </Video>
-                  
+                  <h5>{titulos[index]}</h5>
+
                 </div>
               </div>
             )
@@ -88,27 +93,10 @@ function Home() {
 
         </div>
       </div>
-      <div className="titulos">
-          <ul className="subTitulo">
-              <li className="video1">
-                <h4>pipoca</h4>
-                <p>Na panela</p>
-              </li>
-              <li className="video2">
-                <h4>pipoca</h4>
-                <p>Na panela</p>
-              </li>
-              <li className="video3">
-                <h4>pipoca</h4>
-                <p>Na panela</p>
-              </li>
-          </ul>
-      </div>
 
     </>
   );
 };
 
 export default Home;
-
 
